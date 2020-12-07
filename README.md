@@ -10,5 +10,7 @@ I used an ESP8266 develoment board and some blank PCBs for ease of soldering.
 
 
 This is the schematic for this setup:
+
 ![Schematic](images/schematic.png)
+
 It doesn't include the ESP8266, but the GPIO lines are clearly labeled. When attaching to your garage, make sure your lines are not backwards or the door will not open/close.
