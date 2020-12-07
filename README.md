@@ -14,3 +14,13 @@ This is the schematic for this setup:
 ![Schematic](images/schematic.png)
 
 It doesn't include the ESP8266, but the GPIO lines are clearly labeled. When attaching to your garage, make sure your lines are not backwards or the door will not open/close.
+
+
+
+This is the breadboard and final PCB:
+
+![Breadboard](images/breadboard.png)
+
+![Final PCB](images/pcb.png)
+
+I decided to solder it to a blank PCB since soldering open is sketchy and messy. I then threw it in a plastic box and sealed it off to prevent bugs from getting in.
