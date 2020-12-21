@@ -5,14 +5,14 @@
 
 // Pin used to hookup the relay and sensors.
 #define RELAY_PIN 14
-#define OPEN_SENSOR 15
-#define CLOSED_SENSOR 16
+#define OPEN_SENSOR 12
+#define CLOSED_SENSOR 13
 
 #define RELAY_TIME 1000
 
 // Place network credentials here.
-#define SSID ""
-#define PASSWORD ""
+#define SSID "Will_2.4G"
+#define PASSWORD "horatio0522"
 
 // CLOSED and CLOSING is already defined in ESP8266WiFi.h.
 enum DoorState { OPEN, CLOSED1, OPENING, CLOSING1, STOPPED } state;
@@ -84,9 +84,9 @@ void trigger()
   state = getState();
   
   if (state == OPEN)  
-    state = OPENING;
+    state = CLOSED1;
   else if (state == CLOSED1)
-    state = CLOSING1;
+    state = OPENING;
   else if (state != STOPPED)
     state = STOPPED;
 
@@ -101,11 +101,14 @@ void trigger()
 // Reads data from sensors to determine the doors state.
 DoorState getState()
 {
-  int isOpen = digitalRead(OPEN_SENSOR), isClosed = digitalRead(CLOSED_SENSOR);
+  int isOpen = digitalRead(OPEN_SENSOR);
+  int isClosed = digitalRead(CLOSED_SENSOR);
 
-  if (!isOpen && !isClosed && (state == OPENING || state == CLOSING))
+  Serial.printf("isOpen: %d\nisClosed: %d\n", isOpen, isClosed);
+
+  if (!isOpen && !isClosed)
     return state; // If door is neither open or closed, return the current state (CLOSING1, OPENING, or STOPPED)
-  return isOpen ? OPEN : CLOSED1;
+  return (DoorState)!isOpen;
 }
 
 char* stateToString()

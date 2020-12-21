@@ -17,10 +17,8 @@ It doesn't include the ESP8266, but the GPIO lines are clearly labeled. When att
 
 
 
-This is the breadboard and final PCB:
-
-![Breadboard](images/breadboard.png)
+This is the final PCB:
 
 ![Final PCB](images/pcb.png)
 
-I decided to solder it to a blank PCB since soldering open is sketchy and messy. I then threw it in a plastic box and sealed it off to prevent bugs from getting in.
+I decided to solder it to a blank PCB since soldering open is sketchy and messy. I then threw it in a plastic box and sealed it off to prevent bugs/dust from getting in.
